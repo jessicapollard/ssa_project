@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-# Login ensure security
 urlpatterns = [
     path("", views.user, name="user"),
     path("login", views.login_view, name="login"),
