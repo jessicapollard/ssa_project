@@ -1,18 +1,8 @@
+{% extends 'chipin/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login Page</title>
-    <link rel="stylesheet" href="{% static 'chipin/styles.css' %}">
-</head>
-<body>
-    {% if messages %}
-        <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+{% block title %}Login - ChipIn{% endblock %}
+
+{% block content %}
     <div class="login-container">
         <form action="{% url 'users:login' %}" method="post">
             {% csrf_token %}
@@ -21,5 +11,4 @@
             <input type="submit" value="Login">
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
