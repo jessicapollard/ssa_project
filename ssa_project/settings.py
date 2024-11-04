@@ -9,13 +9,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-p9vc0$ej@7c29oiu0(av6c$l53yv%o@l$4&w=)se+38jeif-wf'
+RECAPTCHA_SECRET_KEY = "6LeMRm4qAAAAAPslEmmSL7zQBpwLV-YHw0R99ytB"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # Authorised list of hosts
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+DEFAULT_FROM_EMAIL = "your_default_email_address"
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "postmaster@your_domain"
+EMAIL_HOST_PASSWORD = "your_mailgun_SMTP_password"
 
 # Application definition
 
