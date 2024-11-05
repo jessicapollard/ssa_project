@@ -3,6 +3,20 @@
 {% block title %}ChipIn{% endblock %}
 {% block content %}
 <h1>ChipIn</h1>
+{% if pending_invitations %}
+        <div class="invitation-notification">
+            <h2>You have pending group invitations:</h2>
+            <ul>
+                {% for group in pending_invitations %}
+                    <li>
+                        You have been invited to join <strong>{{ group.name }}</strong>.
+                        <a href="{% url 'chipin:accept_invite' group.id %}?user_id={{ request.user.id }}">Accept</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <a href="{% url 'chipin:create_group' %}">Create a New Group</a>
 <h2>Your Groups</h2>
 <ul>
     {% for group in user.group_memberships.all %}
