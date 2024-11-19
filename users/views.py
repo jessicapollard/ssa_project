@@ -58,3 +58,16 @@ def logout_view(request):
     logout(request)
     messages.success(request, "Successfully logged out.")
     return redirect('users:login')
+
+# @login_required
+# def top_up(request, user_id):
+    # if request.method == 'POST':
+        # form = top_up_form(request.POST, user=request.user)
+        # if form.is_valid():
+            # amount = request.user.profile.amount
+            # balance = request.user.profile.balance
+            # messages.success(request, f'Transaction was successful!')
+            # return redirect('users:user.html', user_id=user.id)
+     #else:
+        # form = top_up_form(user=request.user)
+    # return render(request, 'user/user.html', {'form': form})

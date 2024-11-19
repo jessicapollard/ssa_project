@@ -28,6 +28,15 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     nickname = models.CharField(max_length=30, unique=True, null=False, blank=False)
+    max_spend = models.DecimalField(max_digits=10, decimal_places=2, default=100.00)  # Max spend for each event
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=100.00)  # User's current balance
+
+# class Transaction(models.Model):
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # date = models.DateTimeField(auto_now_add=True)  # Timestamp when the transaction was made
+    # amount =
+    # existing_balance = 
+    # new_balance =
 
     def clean(self):
         validate_unique_nickname(self.nickname, instance=self)
